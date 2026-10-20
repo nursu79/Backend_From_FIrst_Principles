@@ -18,7 +18,7 @@ This is a learning project with a strict method:
 
 1. **The course is the foundation.** Every version maps to one or more videos from Sriniously's [Backend from First Principles](https://www.youtube.com/@sriniously) playlist, in playlist order. Watch the video first, then build.
 2. **Versions, not features.** Hookline grows from `v0.0` (no code) to `v2.0` (a production-grade platform). Each version starts with a pain the previous version can't handle. That is how real software advances.
-3. **Understand before code.** A mentor agent (instructions in [`CLAUDE.md`](./CLAUDE.md)) explains the why, the analogy and the design before any code is written. I write the code; the agent reviews it.
+3. **Understand before code.** Two agents work with me. The **lecturer** (in Antigravity, instructions in [`AGENTS.md`](./AGENTS.md)) explains the why, the analogy and the design before any code is written; I write the code. The **supervisor** (Claude Code, instructions in [`CLAUDE.md`](./CLAUDE.md)) writes a teaching brief for each version and reviews the result before the next one starts. See [`supervision/`](./supervision/).
 4. **Leave evidence.** Every version ships a learning-log entry, at least one Architecture Decision Record (ADR), a "break it" experiment, tests, and a git tag.
 
 ## Map
@@ -26,7 +26,9 @@ This is a learning project with a strict method:
 | Document | What it's for |
 |---|---|
 | [`ROADMAP.md`](./ROADMAP.md) | Every version, the videos it covers, what to build, and how to know it's done |
-| [`CLAUDE.md`](./CLAUDE.md) | Instructions for the mentor agent that teaches me through the project |
+| [`AGENTS.md`](./AGENTS.md) | Instructions for the lecturer agent that teaches me through each version |
+| [`CLAUDE.md`](./CLAUDE.md) | Instructions for the supervisor agent that briefs and reviews each version |
+| [`supervision/`](./supervision/) | Briefs, reports, reviews, and the current status |
 | [`docs/architecture.md`](./docs/architecture.md) | Where the system is heading (the v2.0 picture) and the tech stack |
 | [`docs/curriculum-map.md`](./docs/curriculum-map.md) | Video → version lookup table |
 | [`docs/adr/`](./docs/adr/) | Architecture Decision Records |

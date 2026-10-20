@@ -12,18 +12,18 @@ Each version adds one room, rule or role to this post office. The analogy comes 
 
 ## How each version works
 
-Every version has the same shape, and the mentor agent (see [`CLAUDE.md`](./CLAUDE.md)) walks through it in this order:
+Every version has the same shape, and the lecturer agent (see [`AGENTS.md`](./AGENTS.md)) walks through it in this order:
 
 | Step | What happens |
 |---|---|
 | 1. Watch | Watch the listed video(s). Take notes in your own words. |
-| 2. Story | The mentor tells the post-office version of the concept. |
+| 2. Story | The lecturer tells the post-office version of the concept. |
 | 3. Pain | Why the current version of Hookline can't cope. No pain, no new version. |
 | 4. Principle | The first principle underneath, tied back to the video. |
-| 5. Design | You propose the design first. The mentor questions it. Then you agree on one. |
-| 6. Build | You write the code in small steps. The mentor reviews; code from the mentor only comes after you can explain why it's needed. |
+| 5. Design | You propose the design first. The lecturer questions it. Then you agree on one. |
+| 6. Build | You write the code in small steps. The lecturer reviews; code from the lecturer only comes after you can explain why it's needed. |
 | 7. Break it | Run the experiment that proves the version works, or shows exactly how it fails. |
-| 8. Explain back | Explain the concept to the mentor without notes. |
+| 8. Explain back | Explain the concept to the lecturer without notes. |
 | 9. Record | Learning-log entry, ADR(s), CHANGELOG line, tests, then `git tag vX.Y.0`. |
 
 ### Versioning rules
@@ -35,7 +35,7 @@ Every version has the same shape, and the mentor agent (see [`CLAUDE.md`](./CLAU
 
 ### Phase gates
 
-At the end of each phase, stop and bring the work back to the planner (the architect role) for a review before continuing. The gate checks that the design still holds, the evidence is complete, and nothing was skipped.
+At the end of each phase, stop and the supervisor agent reviews the work before continuing. The gate checks that the design still holds, the evidence is complete, and nothing was skipped.
 
 | Gate | After | Question it answers |
 |---|---|---|
@@ -229,7 +229,7 @@ At the end of each phase, stop and bring the work back to the planner (the archi
 
 **Done when**
 - [ ] No `net/http` import inside `internal/app`.
-- [ ] **Gate B review** with the planner.
+- [ ] **Gate B review** by the supervisor.
 
 ---
 
@@ -617,10 +617,14 @@ At the end of each phase, stop and bring the work back to the planner (the archi
 
 ---
 
-## After v2.0
+## Beyond v2.0: expansion tracks
 
-Ideas to expand once the playlist foundation is done (add other sources here as they're chosen):
-- Replace the Postgres queue with NATS JetStream or Kafka and write the migration ADR.
-- Multi-region delivery.
-- A web dashboard (frontend optional; the API is the product).
-- Usage-based billing metering.
+The roadmap ends at v2.0, but Hookline keeps growing. The v2.0 code already has separate binaries (API, worker, indexer, WebSocket gateway) and a queue between them, which is what makes these tracks possible. Each track uses the same method: new source material, a brief from the supervisor, versions with a pain, a build and a break-it experiment.
+
+| Track | Versions | What it adds |
+|---|---|---|
+| Microservices | v3.x | Split API, delivery, search and gateway into separately deployed services. gRPC between them, a real broker (NATS JetStream or Kafka), the saga and outbox patterns across services, service discovery, Kubernetes. Includes an ADR on whether splitting was worth it. |
+| AI integration | v4.x | An LLM that explains why deliveries fail and suggests fixes, payload schema inference, semantic search over messages, and an MCP server so AI agents can subscribe to and act on events. Covers prompt/response logging, cost and latency budgets, and evaluation. |
+| Platform | v5.x | Multi-region delivery, usage metering and billing, a web dashboard, a public status page. |
+
+Add the source material for a track to `docs/curriculum-map.md` before starting it.
