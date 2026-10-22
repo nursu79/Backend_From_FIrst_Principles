@@ -3,10 +3,10 @@
 | Field | Value |
 |---|---|
 | Version | v0.0 |
-| State | briefed |
+| State | reported |
 | Branch | version/v0.0-orientation |
-| Last updated by | supervisor |
-| Next action | In Antigravity, run `/start-version` |
+| Last updated by | lecturer |
+| Next action | In Claude Code, run `review v0.0` |
 
 ## History
 

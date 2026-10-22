@@ -1,0 +1,11 @@
+# Hookline - Local Development Services Placeholder
+# Note: External services (PostgreSQL, Redis) are introduced in later versions (v0.8, v0.9).
+# For v0.0, this file serves as the repository scaffold placeholder.
+
+version: "3.8"
+
+services:
+  # Services will be added as required by the roadmap versions
+  placeholder:
+    image: alpine:latest
+    command: ["echo", "Hookline services will be added in v0.8+"]
